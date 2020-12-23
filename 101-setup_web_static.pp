@@ -36,7 +36,7 @@ exec { '/usr/bin/env apt -y update' : }
 -> exec { 'chown -R ubuntu:ubuntu /data/':
   path => '/usr/bin/:/usr/local/bin/:/bin/'
 }
-file { '/var/www':
+-> file { '/var/www':
   ensure => 'directory'
 }
 -> file { '/var/www/html':
@@ -53,13 +53,10 @@ file { '/var/www':
   </body>
 </html>"
 }
--> file { '/etc/nginx/sites-available/default':
-  ensure  => 'present',
-  content => $nginx_conf
-}
 exec { 'nginx_conf':
-  command      => 'sed -i '39 i\ \tlocation /hbnb_static {\n\t\talias /data/web_static/current;\n\t}\n' /etc/nginx/sites-enabled/default',
-  path         => '/usr/bin:/usr/sbin:/bin:/usr/local/bin',
+  environment => ['data=\ \tlocation /hbnb_static {\n\t\talias /data/web_static/current;\n\t}\n'],
+  command     => 'sed -i "39i $data" /etc/nginx/sites-enabled/default',
+  path        => '/usr/bin:/usr/sbin:/bin:/usr/local/bin'
 }
 -> service { 'nginx':
   ensure => running,
