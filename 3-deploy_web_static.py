@@ -36,7 +36,7 @@ def do_deploy(archive_path):
         run("rm -rf {}/web_static".format(folder))
         run('rm -rf /data/web_static/current')
         run("ln -s {} /data/web_static/current".format(folder))
-        print("Deploment done")
+        print("Deployment done")
         return True
     except:
         return False
@@ -44,7 +44,8 @@ def do_deploy(archive_path):
 
 def deploy():
     """Create and distributes an archive to web servers"""
-    path = do_pack()
-    if path is None:
+    try:
+        path = do_pack()
+        return do_deploy(path)
+    except:
         return False
-    return do_deploy(path)
