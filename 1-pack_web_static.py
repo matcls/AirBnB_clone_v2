@@ -5,6 +5,7 @@ import time
 
 
 def do_pack():
+    """Generate an tgz archive from web_static folder"""
     timestr = time.strftime("%Y%m%d%H%M%S")
     try:
         local("mkdir -p versions")
