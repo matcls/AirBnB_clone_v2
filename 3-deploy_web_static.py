@@ -46,6 +46,7 @@ def deploy():
     """Create and distributes an archive to web servers"""
     try:
         archive_path = do_pack()
-        return do_deploy(archive_path)
+        ret = do_deploy(archive_path)
+        return ret
     except:
         return False
