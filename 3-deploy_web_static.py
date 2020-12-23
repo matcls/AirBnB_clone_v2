@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Distribute an archive to web servers"""
+"""Create and distributes an archive to web servers"""
 import os.path
 import time
 from fabric.api import local
@@ -38,5 +38,14 @@ def do_deploy(archive_path):
         run("ln -s {} /data/web_static/current".format(folder))
         print("Deploment done")
         return True
+    except:
+        return False
+
+
+def deploy():
+    """Create and distributes an archive to web servers"""
+    try:
+        archive_path = do_pack()
+        return do_deploy(archive_path)
     except:
         return False
