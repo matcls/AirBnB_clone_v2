@@ -21,8 +21,8 @@ if getenv("HBNB_TYPE_STORAGE") != "db":
     def cities(self):
         """Return the list of City instances with state_id equals
         to the current State.id."""
-        cities = []
-        for city in models.storage.all(City).items():
+        cities_list = []
+        for city in models.storage.all(City).values():
             if city.state_id == self.id:
-                cities.append(city)
-        return cities
+                cities_list.append(city)
+        return cities_list
