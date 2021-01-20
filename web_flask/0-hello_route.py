@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 """
-Hello Flask Module.
-
 Starts a Flask web application.
 Listens on 0.0.0.0  on port 5000.
 Routes:
