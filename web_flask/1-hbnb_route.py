@@ -3,8 +3,8 @@
 Starts a Flask web application.
 Listens on 0.0.0.0  on port 5000.
 Routes:
-/: display “Hello HBNB!
-hbnb: display “HBNB”
+    *   /: display “Hello HBNB!
+    *   hbnb: display “HBNB”
 """
 from flask import Flask
 
