@@ -40,7 +40,7 @@ def c(text):
 @app.route("/python/<text>", strict_slashes=False)
 def python(text="is cool"):
     """Display "Python" followed by the value of <text>.
-    Replaces any underscores in <text> with slashes.
+      Replace any underscores in <text> with slashes.
     """
     return "Python {}".format(text).replace("_", " ")
 
