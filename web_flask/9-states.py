@@ -31,8 +31,8 @@ app = Flask(__name__)
 def states_list():
     """Display a HTML page with a list of all States in DBStorage.
     """
-    return render_template("7-states_list.html",
-                           states=storage.all("State"))
+    states=storage.all("State")
+    return render_template("7-states_list.html", states=states)
 
 
 @app.route("/states/<id>", strict_slashes=False)
@@ -40,8 +40,7 @@ def states_id(id):
     """Displays an HTML page with info about <id>, if it exists."""
     for state in storage.all("State").values():
         if state.id == id:
-            return render_template("9-states.html",
-                                   states=storage.all("State"))
+            return render_template("9-states.html", state=state)
     return render_template("9-states.html")
 
 
