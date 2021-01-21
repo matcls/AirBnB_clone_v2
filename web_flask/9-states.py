@@ -31,7 +31,7 @@ app = Flask(__name__)
 def states_list():
     """Display a HTML page with a list of all States in DBStorage.
     """
-    states=storage.all("State")
+    states = storage.all("State")
     return render_template("7-states_list.html", states=states)
 
 
