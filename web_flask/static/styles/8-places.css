@@ -1,7 +1,7 @@
 .places{
     display: flex;
     flex-direction: column;
-    padding-left: 30px;
+    padding-left: 0px;
 }
 .places h1{
     font-size: 30px;
@@ -32,7 +32,8 @@ article{
 article h2{
     font-size: 30px;
     margin-top: -1px;
-    padding-left: 20%;
+    padding-left: 0%;
+    text-align: left;
 }
 .article_title{
     width: 100%;
