@@ -76,7 +76,7 @@ section.filters button:hover {
 }
 li{
     list-style-type: none;
-    padding-left: -10px;
+    padding-left: 0px;
     padding-bottom: 5%;
 }
 ul{
